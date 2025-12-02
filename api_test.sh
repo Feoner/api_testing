@@ -1,10 +1,5 @@
 
 #!/usr/bin/env bash
-# api_test.sh (v7.0) - full recon + Arjun + VulnAPI + Mantra + Dalfox + HTML dashboard + JSON summary
-# - Parallel recon, colored output
-# - Status-code distribution, per-mode counts, top parameters, sensitive keyword highlights
-# - Sections for VulnAPI, Mantra, Dalfox in dashboard
-# - Self-contained HTML generator (Python) embedded
 set -euo pipefail
 
 
