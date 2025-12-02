@@ -183,7 +183,8 @@ else
   info "Probing endpoints for liveness with httpx..."
   MATCH_CODES="200,201,202,204,301,302,307,308,401,403,405"
   if command -v httpx >/dev/null 2>&1; then
-    cat "$ENDPOINTS_RAW" | httpx -silent -status-code -mc "$MATCH_CODES" "${HTTPX_HDRS[@]}" -o "$LIVE"
+    cat "$ENDPOINTS_RAW" | httpx -silent -status-code -mc "$MATCH_CODES" "${HTTPX_HDRS[@]}" \
+  | sed -E 's/[[:space:]]*\[[0-9]{3}\]$//' > "$LIVE"
   else
     warn "httpx not found; copying raw endpoints to live list"
     cp "$ENDPOINTS_RAW" "$LIVE"
